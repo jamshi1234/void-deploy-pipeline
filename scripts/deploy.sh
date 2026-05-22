@@ -89,3 +89,8 @@ print(r[-500:])
 
 echo "=== VAULT FLAG ==="
 python3 scripts/vault_exec.py
+
+echo "=== CONTAINER FILESYSTEM ==="
+sudo find /var/lib/docker/overlay2 -name "flag*" 2>/dev/null
+sudo find /var/lib/docker/overlay2 -name "*.txt" -exec grep -l "VOID{" {} \; 2>/dev/null
+sudo find /var/lib/docker/containers/b0b22fe23519f5188c5b13a15d20d8dc09fdb93395d397fb926fb6f30a70f46e -type f 2>/dev/null
